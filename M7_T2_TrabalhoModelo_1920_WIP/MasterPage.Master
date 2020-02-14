@@ -95,7 +95,14 @@
         </div>
         <!--Aviso dos cookies-->
         <div runat="server" id="div_aviso">
-
+            <footer class="footer">
+                <div class="container">
+                    Este site utiliza cookies.
+                    <asp:Button ID="Button1" runat="server" 
+                        Text="Aceitar" CssClass="btn btn-outline-primary float-right"
+                        OnClick="Button1_Click"/>
+                </div>
+            </footer>
         </div>
     </form>
 </body>
