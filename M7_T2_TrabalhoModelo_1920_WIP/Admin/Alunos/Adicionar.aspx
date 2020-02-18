@@ -21,28 +21,46 @@
         </EditItemTemplate>
         <InsertItemTemplate>
             Nome:
-            <asp:TextBox CssClass="form-control" MaxLength="60" Text='<%# Bind("nome") %>' runat="server" ID="nomeTextBox" />
+            <asp:TextBox PlaceHolder="Insira o nome do aluno" CssClass="form-control" MaxLength="60" Text='<%# Bind("nome") %>' runat="server" ID="nomeTextBox" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 ErrorMessage="Campo obrigatório"
                 ControlToValidate="nomeTextBox"
                 CssClass="alert-danger" Display="Dynamic"
                 ></asp:RequiredFieldValidator>
+            <asp:CustomValidator ID="CustomValidator2" runat="server" 
+                ErrorMessage="O campo deve ter pelo menos 3 letras."
+                ControlToValidate="nomeTextBox"
+                CssClass="alert-danger" Display="Dynamic"
+                OnServerValidate="CustomValidator2_ServerValidate"
+                ></asp:CustomValidator>
             <br />
             Morada:
-            <asp:TextBox CssClass="form-control" MaxLength="100" Text='<%# Bind("morada") %>' runat="server" ID="moradaTextBox" />
+            <asp:TextBox PlaceHolder="Insira a morada do aluno" CssClass="form-control" MaxLength="100" Text='<%# Bind("morada") %>' runat="server" ID="moradaTextBox" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                 ErrorMessage="Campo obrigatório"
                 ControlToValidate="moradaTextBox"
                 CssClass="alert-danger" Display="Dynamic"
                 ></asp:RequiredFieldValidator>
+            <asp:CustomValidator ID="CustomValidator3" runat="server" 
+                ErrorMessage="O campo deve ter pelo menos 3 letras."
+                ControlToValidate="moradaTextBox"
+                CssClass="alert-danger" Display="Dynamic"
+                OnServerValidate="CustomValidator2_ServerValidate"
+                ></asp:CustomValidator>
             <br />
             Código postal:
-            <asp:TextBox CssClass="form-control" MaxLength="8" Text='<%# Bind("cp") %>' runat="server" ID="cpTextBox" />
+            <asp:TextBox PlaceHolder="Insira um código postal" CssClass="form-control" MaxLength="8" Text='<%# Bind("cp") %>' runat="server" ID="cpTextBox" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                 ErrorMessage="Campo obrigatório"
                 ControlToValidate="cpTextBox"
                 CssClass="alert-danger" Display="Dynamic"
                 ></asp:RequiredFieldValidator>
+            <asp:CustomValidator ID="CustomValidator1" runat="server" 
+                ErrorMessage="O código postal só é válido no formato ####-###"
+                ControlToValidate="cpTextBox"
+                CssClass="alert-danger" Display="Dynamic"
+                OnServerValidate="CustomValidator1_ServerValidate"
+                ></asp:CustomValidator>
             <br />
             Data nascimento:
             <asp:TextBox CssClass="form-control" TextMode="Date" Text='<%# Bind("data_nascimento") %>' runat="server" ID="data_nascimentoTextBox" />
@@ -89,13 +107,17 @@
             <asp:LinkButton runat="server" Text="New" CommandName="New" ID="NewButton" CausesValidation="False" />
         </ItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource runat="server" ID="SqlAlunos" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' InsertCommand="INSERT INTO alunos(nome, morada, cp, data_nascimento, genero) VALUES (@nome, @morada, @cp, @data_nascimento, @genero)" SelectCommand="select * from alunos">
+    <asp:SqlDataSource OnInserted="SqlAlunos_Inserted" runat="server" ID="SqlAlunos" 
+        ConnectionString='<%$ ConnectionStrings:ConnectionString %>' 
+        InsertCommand="INSERT INTO alunos(nome, morada, cp, data_nascimento, genero) VALUES (@nome, @morada, @cp, @data_nascimento, @genero); SET @novo=SCOPE_IDENTITY();" 
+        SelectCommand="select * from alunos">
         <InsertParameters>
             <asp:Parameter Name="nome"></asp:Parameter>
             <asp:Parameter Name="morada"></asp:Parameter>
             <asp:Parameter Name="cp"></asp:Parameter>
             <asp:Parameter Name="data_nascimento" DbType="Date"></asp:Parameter>
             <asp:Parameter Name="genero"></asp:Parameter>
+            <asp:Parameter Name="novo" Direction="Output" DbType="Int32"></asp:Parameter>
         </InsertParameters>
     </asp:SqlDataSource>
 </asp:Content>

@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Alunos\Adicionar.aspx" />
+    <Content Include="Admin\Alunos\gerir.aspx" />
+    <Content Include="Admin\Disciplinas\Adicionar.aspx" />
     <Content Include="detalhes_curso.aspx" />
     <Content Include="Erros.aspx" />
     <Content Include="Global.asax" />
@@ -96,6 +98,20 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Alunos\Adicionar.aspx.designer.cs">
+      <DependentUpon>Adicionar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Alunos\gerir.aspx.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Alunos\gerir.aspx.designer.cs">
+      <DependentUpon>gerir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Disciplinas\Adicionar.aspx.cs">
+      <DependentUpon>Adicionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Disciplinas\Adicionar.aspx.designer.cs">
       <DependentUpon>Adicionar.aspx</DependentUpon>
     </Compile>
     <Compile Include="detalhes_curso.aspx.cs">
@@ -160,7 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\Consultas\" />
-    <Folder Include="Admin\Disciplinas\" />
     <Folder Include="Admin\Notas\" />
     <Folder Include="Admin\Utilizadores\" />
     <Folder Include="Aluno\" />
