@@ -3,7 +3,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Alunos</h1>
-    Nome:<asp:TextBox CssClass="form-control" PlaceHolder="VAmos almoçar!!!" ID="TextBox1" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Button" />
+    Nome:<asp:TextBox CssClass="form-control" PlaceHolder="Nome do aluno a pesquisar" ID="TextBox1" runat="server"></asp:TextBox><asp:Button CssClass="btn btn-info" ID="Button1" runat="server" Text="Pesquisar" />
     <br />
-    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+    <asp:GridView CssClass="table" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="nprocesso" DataSourceID="SqlAlunos">
+        <Columns>
+            <asp:BoundField DataField="nprocesso" HeaderText="nprocesso" ReadOnly="True" InsertVisible="False" SortExpression="nprocesso"></asp:BoundField>
+            <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome"></asp:BoundField>
+            <asp:ImageField ControlStyle-Width="200px" DataImageUrlField="nprocesso" DataImageUrlFormatString="~/Public/Imagens/{0}.jpg" HeaderText="Fotografia"></asp:ImageField>
+            <asp:HyperLinkField DataNavigateUrlFields="nprocesso" DataNavigateUrlFormatString="editarAluno.aspx?nprocesso={0}" Text="Editar" HeaderText="Editar"></asp:HyperLinkField>
+            <asp:HyperLinkField DataNavigateUrlFields="nprocesso" DataNavigateUrlFormatString="apagarAluno.aspx?nprocesso={0}" Text="Apagar" HeaderText="Apagar"></asp:HyperLinkField>
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource runat="server" ID="SqlAlunos" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT [nprocesso], [nome] FROM [alunos] WHERE ([nome] LIKE '%' + @nome + '%')">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="TextBox1" PropertyName="Text" Name="nome" Type="String"></asp:ControlParameter>
+        </SelectParameters>
+    </asp:SqlDataSource>
 </asp:Content>
