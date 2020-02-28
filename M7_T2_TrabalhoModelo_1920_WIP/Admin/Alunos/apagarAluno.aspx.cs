@@ -11,12 +11,24 @@ namespace M7_T2_TrabalhoModelo_1920_WIP.Admin.Alunos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //todo:página para admin
         }
 
         protected void SqlAlunos_Deleted(object sender, SqlDataSourceStatusEventArgs e)
         {
-            //TODO:apagar imagem
+            //nprocesso
+            string nprocesso = Request.QueryString["nprocesso"].ToString();
+
+            //tentar apagar
+            string ficheiro = Server.MapPath("~/Public/Imagens/") + nprocesso + ".jpg";
+            try
+            {
+                System.IO.File.Delete(ficheiro);
+            }
+            catch
+            {
+
+            }
         }
     }
 }
