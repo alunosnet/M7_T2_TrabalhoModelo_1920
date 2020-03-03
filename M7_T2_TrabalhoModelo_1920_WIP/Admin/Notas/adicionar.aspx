@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <h1>Adicionar notas</h1>
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="id" DataSourceID="SqlNotas">
+    <asp:FormView DefaultMode="Insert" ID="FormView1" runat="server" DataKeyNames="id" DataSourceID="SqlNotas">
         <EditItemTemplate>
             id:
             <asp:Label Text='<%# Eval("id") %>' runat="server" ID="idLabel1" /><br />
@@ -21,35 +21,43 @@
         </EditItemTemplate>
         <InsertItemTemplate>
             id_disciplina:
-            <asp:TextBox Text='<%# Bind("id_disciplina") %>' runat="server" ID="id_disciplinaTextBox" />
+            <asp:DropDownList ID="id_disciplinaTextBox2" runat="server" SelectedValue='<%# Bind("id_disciplina") %>' DataSourceID="SqlDisciplinas" DataTextField="nome" DataValueField="id"></asp:DropDownList>
+            <asp:SqlDataSource runat="server" ID="SqlDisciplinas" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT [id], [nome] FROM [disciplinas] ORDER BY [nome]"></asp:SqlDataSource>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                 CssClass="alert-danger" Display="Dynamic"
-                ControlToValidate="id_disciplinaTextBox"
+                ControlToValidate="id_disciplinaTextBox2"
                 ErrorMessage="Campo obrigatório"></asp:RequiredFieldValidator>
             <br />
             nprocesso:
-            <asp:TextBox Text='<%# Bind("nprocesso") %>' runat="server" ID="nprocessoTextBox" />
+            <asp:DropDownList ID="nprocessoTextBox2" runat="server" SelectedValue='<%# Bind("nprocesso") %>' DataSourceID="SqlAlunos" DataTextField="nome" DataValueField="nprocesso"></asp:DropDownList>
+            <asp:SqlDataSource runat="server" ID="SqlAlunos" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT [nprocesso], [nome] FROM [alunos] ORDER BY [nome]"></asp:SqlDataSource>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                 CssClass="alert-danger" Display="Dynamic"
-                ControlToValidate="nprocessoTextBox"
+                ControlToValidate="nprocessoTextBox2"
                 ErrorMessage="Campo obrigatório"></asp:RequiredFieldValidator>
             <br />
-            valor:
-            <asp:TextBox Text='<%# Bind("valor") %>' runat="server" ID="valorTextBox" />
+            Valor:
+            <asp:TextBox TextMode="Number" Text='<%# Bind("valor") %>' runat="server" ID="valorTextBox" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                 CssClass="alert-danger" Display="Dynamic"
                 ControlToValidate="valorTextBox"
                 ErrorMessage="Campo obrigatório"></asp:RequiredFieldValidator>
+            <asp:RangeValidator ID="RangeValidator1" runat="server" 
+                ErrorMessage="A nota deve estar entre 0 e 20"
+                CssClass="alert-danger" Display="Dynamic"
+                ControlToValidate="valorTextBox"
+                Type="Integer" MinimumValue="0" MaximumValue="20"
+                ></asp:RangeValidator>
             <br />
-            data:
-            <asp:TextBox Text='<%# Bind("data") %>' runat="server" ID="dataTextBox" />
+            Data:
+            <asp:TextBox TextMode="Date" Text='<%# Bind("data") %>' runat="server" ID="dataTextBox" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                 CssClass="alert-danger" Display="Dynamic"
                 ControlToValidate="dataTextBox"
                 ErrorMessage="Campo obrigatório"></asp:RequiredFieldValidator>
             <br />
-            nrmodulo:
-            <asp:TextBox Text='<%# Bind("nrmodulo") %>' runat="server" ID="nrmoduloTextBox" />
+            Nº módulo:
+            <asp:TextBox TextMode="Number" Text='<%# Bind("nrmodulo") %>' runat="server" ID="nrmoduloTextBox" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                 CssClass="alert-danger" Display="Dynamic"
                 ControlToValidate="nrmoduloTextBox"
@@ -78,7 +86,7 @@
             <asp:Parameter Name="id_disciplina"></asp:Parameter>
             <asp:Parameter Name="nprocesso"></asp:Parameter>
             <asp:Parameter Name="valor"></asp:Parameter>
-            <asp:Parameter Name="data"></asp:Parameter>
+            <asp:Parameter Name="data" DbType="Date"></asp:Parameter>
             <asp:Parameter Name="nrmodulo"></asp:Parameter>
         </InsertParameters>
     </asp:SqlDataSource>

@@ -11,7 +11,9 @@ namespace M7_T2_TrabalhoModelo_1920_WIP.Admin.Notas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //TODO:página admin
+            //TODO: validar as notas para evitar que o mesmo aluno tenha mais do que 
+            //uma nota na mesma disciplina e no mesmo módulo
         }
     }
 }
