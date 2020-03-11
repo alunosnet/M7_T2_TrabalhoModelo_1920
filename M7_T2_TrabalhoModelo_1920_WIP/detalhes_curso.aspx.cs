@@ -11,7 +11,18 @@ namespace M7_T2_TrabalhoModelo_1920_WIP
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //criar um cookie para guardar o curso escolhido
+            try
+            {
+                string curso = Request.QueryString["q"].ToString();
+                HttpCookie cookie = new HttpCookie("curso", curso);
+                cookie.Expires = DateTime.Now.AddMonths(1);
+                Response.Cookies.Add(cookie);
+            }
+            catch
+            {
+                Response.Redirect("index.aspx");
+            }
         }
     }
 }

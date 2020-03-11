@@ -11,7 +11,22 @@ namespace M7_T2_TrabalhoModelo_1920_WIP.Admin.Notas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //página para admin
+            if (Session["perfil"] == null || Session["perfil"].Equals("0") == false)
+                Response.Redirect("~/index.aspx");
 
         }
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            DateTime data = DateTime.Parse(args.Value);
+
+            if (data > DateTime.Now.Date)
+            {
+                args.IsValid = false;
+                return;
+            }
+            args.IsValid = true;
+        }
+
     }
 }

@@ -5,14 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace M7_T2_TrabalhoModelo_1920_WIP.Admin.Alunos
+namespace M7_T2_TrabalhoModelo_1920_WIP.Aluno
 {
-    public partial class editarAluno : System.Web.UI.Page
+    public partial class perfil_aluno : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //página para admin
-            if (Session["perfil"] == null || Session["perfil"].Equals("0") == false)
+            //página para alunos
+            if (Session["perfil"] == null || Session["perfil"].Equals("1") == false)
                 Response.Redirect("~/index.aspx");
 
         }
@@ -67,18 +67,6 @@ namespace M7_T2_TrabalhoModelo_1920_WIP.Admin.Alunos
             }
 
             args.IsValid = true;
-        }
-
-        protected void SqlAlunos_Updated(object sender, SqlDataSourceStatusEventArgs e)
-        {
-            string nprocesso = Request.QueryString["nprocesso"].ToString();
-
-            FileUpload ficheiro = FormView1.FindControl("FileUpload1") as FileUpload;
-
-            if (ficheiro.HasFile)
-            {
-                ficheiro.SaveAs(Server.MapPath("~/Public/Imagens/") + nprocesso + ".jpg");
-            }
         }
     }
 }

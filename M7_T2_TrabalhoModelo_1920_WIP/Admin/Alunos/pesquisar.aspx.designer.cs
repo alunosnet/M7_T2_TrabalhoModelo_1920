@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace M7_T2_TrabalhoModelo_1920_WIP.Admin.Notas
+namespace M7_T2_TrabalhoModelo_1920_WIP.Admin.Alunos
 {
 
 
-    public partial class gerir
+    public partial class pesquisar
     {
 
         /// <summary>
@@ -40,6 +40,24 @@ namespace M7_T2_TrabalhoModelo_1920_WIP.Admin.Notas
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// SqlAlunos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlAlunos;
+
+        /// <summary>
+        /// GridView2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView2;
 
         /// <summary>
         /// SqlNotas control.

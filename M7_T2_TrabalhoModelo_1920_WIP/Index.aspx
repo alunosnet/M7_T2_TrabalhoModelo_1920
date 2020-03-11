@@ -3,11 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--Login-->
-    <div runat="server" id="divLogin">
-        Nome:<asp:TextBox ID="TBNome" runat="server"></asp:TextBox><br />
-        Password:<asp:TextBox TextMode="Password" ID="TBPassword" runat="server"></asp:TextBox><br />
-        <asp:Button ID="Button1" runat="server" Text="Login" />
-        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+    <div runat="server" id="divLogin" class="col-md-3 float-right border">
+        Nome:<asp:TextBox CssClass="form-control" ID="TBNome" runat="server"></asp:TextBox><br />
+        Password:<asp:TextBox CssClass="form-control" TextMode="Password" ID="TBPassword" runat="server"></asp:TextBox><br />
+        <asp:Button CssClass="btn btn-info" ID="Button1" runat="server" Text="Login" />
+        <asp:Label CssClass="alert-danger" ID="Label1" runat="server" Text=""></asp:Label>
         <asp:DetailsView OnDataBound="DetailsView1_DataBound" ID="DetailsView1" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="nome" DataSourceID="SqlLogin">
             <Fields>
                 <asp:BoundField DataField="nome" HeaderText="nome" ReadOnly="True" SortExpression="nome"></asp:BoundField>
@@ -23,7 +23,29 @@
         </asp:SqlDataSource>
     </div>
     <!--Listar cursos-->
-    <div runat="server" id="divCursos"></div>
+    <div runat="server" id="divCursos" class="col-md-9 float-left border">
+                <h2>Cursos disponíveis</h2>
+        <asp:GridView CssClass="table" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlCursos">
+            <Columns>
+                <asp:BoundField DataField="curso" HeaderText="curso" SortExpression="curso"></asp:BoundField>
+                <asp:HyperLinkField DataNavigateUrlFields="curso" DataNavigateUrlFormatString="detalhes_curso.aspx?q={0}" Text="Ver mais..." HeaderText="Detalhes do curso"></asp:HyperLinkField>
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource runat="server" ID="SqlCursos" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT DISTINCT [curso] FROM [disciplinas]"></asp:SqlDataSource>
+    </div>
     <!--Listar disciplinas-->
-    <div runat="server" id="divDisciplinas"></div>
+    <div runat="server" id="divDisciplinas" class="col-md-9 border">
+        <h2>Disciplinas mais pesquisadas</h2>
+        <asp:GridView  CssClass="table" ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDisciplinas">
+            <Columns>
+                <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome"></asp:BoundField>
+                <asp:BoundField DataField="nrmodulos" HeaderText="nrmodulos" SortExpression="nrmodulos"></asp:BoundField>
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource runat="server" ID="SqlDisciplinas" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT [nome], [nrmodulos] FROM [disciplinas] WHERE ([curso] = @curso)">
+            <SelectParameters>
+                <asp:CookieParameter CookieName="curso" Name="curso" Type="String"></asp:CookieParameter>
+            </SelectParameters>
+        </asp:SqlDataSource>
+    </div>
 </asp:Content>

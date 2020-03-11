@@ -11,43 +11,43 @@ namespace M7_T2_TrabalhoModelo_1920_WIP.Admin.Notas
 {
 
 
-    public partial class gerir
+    public partial class pesquisar
     {
 
         /// <summary>
-        /// TextBox1 control.
+        /// tbnome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox tbnome;
 
         /// <summary>
-        /// Button1 control.
+        /// bt1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button bt1;
 
         /// <summary>
-        /// GridView1 control.
+        /// GV1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GV1;
 
         /// <summary>
-        /// SqlNotas control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlNotas;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

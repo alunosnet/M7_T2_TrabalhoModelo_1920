@@ -7,29 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace M7_T2_TrabalhoModelo_1920_WIP
+namespace M7_T2_TrabalhoModelo_1920_WIP.Admin.Consultas
 {
 
 
-    public partial class detalhes_curso
+    public partial class grafico
     {
 
         /// <summary>
-        /// GridView1 control.
+        /// Chart1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart Chart1;
 
         /// <summary>
-        /// SqlDisciplinas control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDisciplinas;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

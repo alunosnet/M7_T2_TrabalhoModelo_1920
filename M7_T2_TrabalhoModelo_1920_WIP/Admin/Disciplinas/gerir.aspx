@@ -3,8 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Gerir disciplinas</h1>
-    Curso:<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Pesquisar" />
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDisciplinas1" AllowPaging="True" AllowSorting="True">
+    Curso:<asp:TextBox CssClass="form-control" ID="TextBox1" runat="server"></asp:TextBox><asp:Button CssClass="btn btn-info" ID="Button1" runat="server" Text="Pesquisar" />
+    <asp:GridView CssClass="table" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDisciplinas1" AllowPaging="True" AllowSorting="True">
         <Columns>
             <asp:TemplateField ShowHeader="False">
                 <EditItemTemplate>
@@ -16,7 +16,7 @@
             </asp:TemplateField>
 
             <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" InsertVisible="False" SortExpression="id"></asp:BoundField>
-            <asp:TemplateField HeaderText="nome" SortExpression="nome">
+            <asp:TemplateField HeaderText="Nome" SortExpression="nome">
                 <EditItemTemplate>
                     <asp:TextBox runat="server" Text='<%# Bind("nome") %>' ID="nomeTextBox"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
@@ -34,7 +34,7 @@
                     <asp:Label runat="server" Text='<%# Bind("nome") %>' ID="Label1"></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="nrmodulos" SortExpression="nrmodulos">
+            <asp:TemplateField HeaderText="Nº módulos" SortExpression="nrmodulos">
                 <EditItemTemplate>
                     <asp:TextBox runat="server" Text='<%# Bind("nrmodulos") %>' ID="nrmodulosTextBox"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"

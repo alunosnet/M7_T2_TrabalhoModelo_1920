@@ -7,39 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace M7_T2_TrabalhoModelo_1920_WIP
+namespace M7_T2_TrabalhoModelo_1920_WIP.Admin.Disciplinas
 {
 
 
-    public partial class Index
+    public partial class pesquisar
     {
 
         /// <summary>
-        /// divLogin control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLogin;
-
-        /// <summary>
-        /// TBNome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBNome;
-
-        /// <summary>
-        /// TBPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBPassword;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
         /// Button1 control.
@@ -51,42 +33,6 @@ namespace M7_T2_TrabalhoModelo_1920_WIP
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// DetailsView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
-
-        /// <summary>
-        /// SqlLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlLogin;
-
-        /// <summary>
-        /// divCursos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCursos;
-
-        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -94,6 +40,24 @@ namespace M7_T2_TrabalhoModelo_1920_WIP
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// SqlDisciplinas1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDisciplinas1;
+
+        /// <summary>
+        /// DropDownList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
         /// SqlCursos control.
@@ -105,15 +69,6 @@ namespace M7_T2_TrabalhoModelo_1920_WIP
         protected global::System.Web.UI.WebControls.SqlDataSource SqlCursos;
 
         /// <summary>
-        /// divDisciplinas control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDisciplinas;
-
-        /// <summary>
         /// GridView2 control.
         /// </summary>
         /// <remarks>
@@ -123,12 +78,12 @@ namespace M7_T2_TrabalhoModelo_1920_WIP
         protected global::System.Web.UI.WebControls.GridView GridView2;
 
         /// <summary>
-        /// SqlDisciplinas control.
+        /// SqlDisciplinas2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDisciplinas;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDisciplinas2;
     }
 }
